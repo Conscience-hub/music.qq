@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="player-container">
+        <!-- 顶部信息栏（姓名+学号） -->
+        <header class="player-header">
+            <h1 class="player-title">音乐播放器</h1>
+            <div class="user-info">
+                姓名：梁芯怡 | 学号:25216950206
+            </div>
+        </header>
+
+        <!-- 主体内容 -->
+        <div class="player-main">
+            <!-- 左侧：封面+控制区 -->
+            <div class="player-left">
+                <!-- 封面（本地record0.jpg） -->
+                <div class="cover-wrapper">
+                    <div class="cover-rotate" id="coverRotate">
+                        <img src="./img/record0.jpg" alt="歌曲封面" class="cover-img" id="coverImg">
+                    </div>
+                </div>
+
+                <!-- 歌曲信息 -->
+                <div class="music-info">
+                    <h2 class="music-title" id="musicTitle">爱情废材</h2>
+                    <p class="music-singer" id="musicSinger">周杰伦</p>
+                </div>
+
+                <!-- 进度条 -->
+                <div class="progress-control">
+                    <span class="time current-time" id="currentTime">00:04</span>
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-played" id="progressPlayed"></div>
+                        <div class="progress-dot" id="progressDot"></div>
+                    </div>
+                    <span class="time total-time" id="totalTime">04:03</span>
+                </div>
+
+                <!-- 控制按钮（全本地图片） -->
+                <div class="control-buttons">
+                    <!-- 循环模式（mode1.png） -->
+                    <button class="control-btn btn-loop" id="btnLoop" title="列表循环">
+                        <img src="./img/mode1.png" alt="列表循环" class="btn-icon">
+                    </button>
+                    <!-- 上一曲（上一首.png） -->
+                    <button class="control-btn btn-prev" id="btnPrev" title="上一曲">
+                        <img src="./img/上一首.png" alt="上一曲" class="btn-icon">
+                    </button>
+                    <!-- 播放/暂停（继续播放.png） -->
+                    <button class="control-btn btn-play" id="btnPlay" title="播放/暂停">
+                        <img src="./img/继续播放.png" alt="播放" class="btn-icon">
+                    </button>
+                    <!-- 下一曲（下一首.png） -->
+                    <button class="control-btn btn-next" id="btnNext" title="下一曲">
+                        <img src="./img/下一首.png" alt="下一曲" class="btn-icon">
+                    </button>
+                    <!-- 随机播放（mode3.png） -->
+                    <button class="control-btn btn-random" id="btnRandom" title="随机播放">
+                        <img src="./img/mode3.png" alt="随机播放" class="btn-icon">
+                    </button>
+                    <!-- 音量（音量.png） -->
+                    <button class="control-btn btn-volume" id="btnVolume" title="音量">
+                        <img src="./img/音量.png" alt="音量" class="btn-icon">
+                    </button>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+                    <!-- 播放列表（列表.png） -->
+                    <button class="control-btn btn-list" id="btnList" title="播放列表">
+                        <img src="./img/列表.png" alt="列表" class="btn-icon">
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右侧：播放列表 -->
+            <div class="player-right" id="playerRight">
+                <div class="playlist-header">
+                    <h3>播放列表</h3>
+                    <span class="playlist-count" id="playlistCount">共 4 首</span>
+                </div>
+                <ul class="playlist-list" id="playlistList">
+                    <!-- JS动态渲染 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 本地音频（music0.mp3） -->
+    <audio id="audioPlayer" preload="metadata">
+        <source src="./mp3/music0.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放！
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
